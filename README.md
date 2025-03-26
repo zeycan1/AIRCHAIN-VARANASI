@@ -1,6 +1,6 @@
-<h1 align="center"> Airchain </h1>
+<h1 align="center"> AIRCHAINS </h1>
 
-# AIRCHAIN-VARANASI
+# AIRCHAINS-VARANASI
 
 ![image](https://github.com/molla202/Airchain/assets/91562185/64b9e7f3-4739-4774-b421-635e224dcd4f)
 
@@ -182,15 +182,32 @@ Not: After editing the code below, write the code above by pasting your edited c
 }
 ```
 ```
-junctiond tx staking create-validator $HOME/validator.json --from cüzdan-adi --chain-id varanasi-1 --fees 5000uamf --node http://localhost:63657
+junctiond tx staking create-validator $HOME/validator.json --from walletname --chain-id varanasi-1 --fees 5000uamf --node http://localhost:63657
 ```
-### 🚧Kendinize stake
+##  USEFUL COMMANDS
+### 🚧Check the logs
 ```
-junctiond tx staking delegate $(junctiond keys show cüzdan-adi-yaz --bech val -a) 1000000amf --from cüzdan-adi-yaz --chain-id varanasi-1 --fees 5000uamf --node=http://localhost:63657 -y
+sudo journalctl -u junctiond -f --no-hostname -o cat
 ```
-### 🚧Jailden çıkma
+### 🚧Stop service
 ```
-junctiond tx slashing unjail --from cüzdan-adi-yaz --chain-id varanasi-1 --fees 5000amf --node=http://localhost:63657 -y
+sudo systemctl stop junctiond
+```
+### 🚧Restart service
+```
+sudo systemctl restart junctiond
+```
+### 🚧Check Balance
+```
+junctiond query bank balances walletadress
+```
+### 🚧Stake to yourself
+```
+junctiond tx staking delegate $(junctiond keys show walletname --bech val -a) 1000000amf --from walletname --chain-id varanasi-1 --fees 5000uamf --node=http://localhost:63657 -y
+```
+### 🚧Unjail validator
+```
+junctiond tx slashing unjail --from walletname --chain-id varanasi-1 --fees 5000amf --node=http://localhost:63657 -y
 ```
 ### 🚧Delete node
 ```
